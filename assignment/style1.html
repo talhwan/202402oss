@@ -64,7 +64,6 @@
     }
     
     .menuitem {
-        background-color: #f1f1f1;
         border: 1px solid #d4d4d4;
         list-style-type: none;
         padding: 2px;
@@ -72,10 +71,14 @@
     }
     
     .menuitem:hover {
-        background-color: #ffffff;
+        background-color: yellowgreen;
+        color:brown;
     }
     
-    .menuitem:first-child {
+    .menuitem_off {
+        background-color: #f1f1f1;
+    }
+    .menuitem_on{
        background-color:#04AA6D;
        color: white;
        font-weight:bold;
@@ -123,11 +126,11 @@
   <div class="wrapper">
    <div id="menubar">
      <ul id="menulist">
-       <li class="menuitem">Stylesheet 1
-       <li class="menuitem">Stylesheet 2
-       <li class="menuitem">Stylesheet 3
-       <li class="menuitem">Stylesheet 4
-       <li class="menuitem">No Stylesheet
+       <li class="menuitem menuitem_on">Stylesheet 1
+       <li class="menuitem menuitem_off">Stylesheet 2
+       <li class="menuitem menuitem_off">Stylesheet 3
+       <li class="menuitem menuitem_off">Stylesheet 4
+       <li class="menuitem menuitem_off">No Stylesheet
      </ul>
     </div>
     <div id="main">
