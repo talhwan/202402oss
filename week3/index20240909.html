@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>20240902</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../img/star.jpg">
+    <style>
+    .input_basic{
+        background-color: aqua;
+    }
+
+    @media (max-width: 800px) {
+        .input_basic {
+            background-color: brown;
+        }   
+    }
+    </style>
+</head>
+<body>
+
+    <script>
+        let a = 123;
+        alert(a);
+        //let a = 222;
+        console.log(a);
+    </script>
+    <script src="./test.js"></script>
+
+
+<div>form test</div>
+    <form action="save_ok.php">
+        <label for="uname"><span>*</span>이름</label>
+        <input type="text" id="uname" name="uname" required value="이름1" /><br/>
+        <label for="pwd"><span>*</span>비밀번호</label>
+        <input type="password" id="pwd" placeholder="비번을 입력하시오" required/><br/>
+    
+        <label for="input_5">checkbox input</label>
+        <input type="checkbox" id="input_5" class="input_basic" />
+        <br/>
+        <br/>
+        <label>radio input</label>
+        1<input type="radio" id="input_6_1" name="input_6" value="0001" class="input_basic" />
+        2<input type="radio" id="input_6_2" name="input_6" value="0002" class="input_basic" />
+        3<input type="radio" id="input_6_3" name="input_6" value="0003" class="input_basic" />
+        4<input type="radio" id="input_6_4" name="input_6" value="0004" class="input_basic" />
+
+        file
+        <input type="file" />
+        <br/>
+        <select id="select_1">
+            <option value="first">가</option>
+            <option value="나">나</option>
+            <option value="다">다</option>
+            <option value="none">라</option>
+        </select>
+
+        <textarea name="textarea_content"></textarea>
+
+        color
+        <input type="color" />
+    
+        <input type="submit" value="저장"/>
+        <input type="reset" value="취소"/>
+    </form>
+
+
+
+
+
+
+</body>
+</html>
+

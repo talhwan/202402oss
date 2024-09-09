@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>20240902</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../img/star.jpg">
+    <style>
+    .input_basic{
+        background-color: aqua;
+    }
+
+    @media (max-width: 800px) {
+        .input_basic {
+            background-color: brown;
+        }   
+    }
+    </style>
+</head>
+<body>
+
+    <div id="div1" onclick="alert('div 클릭해봤습니다.')">
+       div1 클릭 테스트 
+    </div>
+
+    <div id="div2" onmouseover="reset_css(1)" onmouseleave="reset_css(2)">
+       div2 마우스 오버 테스트 
+    </div>
+
+    <input id="add_1" type="number" /> + 
+    <input id="add_2" type="number" onkeyup="console.log('keyup')" onkeydown="console.log('keydown')" onchange="console.log('onchange');"/>
+    =
+    <input id="sum" type="number" />
+
+    <button onclick="add();">더해주세요!</button>
+    <script>
+        function add(){
+            let num1 = document.getElementById("add_1").value;
+            let num2 = document.getElementById("add_2").value;
+
+            let sum = Number(num1) + Number(num2);
+            //alert(sum);
+            document.getElementById("sum").value = sum;
+        }
+        function reset_css(obj_type){
+            let div2 = document.getElementById("div2");
+            if(obj_type == 1){
+                div2.style = "background-color:yellow;";
+            } else {
+                div2.style = "background-color:blue;";
+            }
+            
+        }
+
+    </script>
+
+</body>
+</html>
+
