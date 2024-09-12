@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>20240902</title>
+    
+    <link rel="shortcut icon" href="../img/star.jpg">
+    <style>
+    .input_basic{
+        background-color: aqua;
+    }
+
+    @media (max-width: 800px) {
+        .input_basic {
+            background-color: brown;
+        }   
+    }
+    .div_blue{
+        background-color: aqua;
+    }
+    </style>
+</head>
+<body>
+
+<div>동적 페이지 생성입니다.</div>
+<input type="text" id="input_append" />
+<button onclick="listener_append()">등록</button>
+<button onclick="delete_all()">전체 삭제</button>
+<div id="div_append">
+
+</div>
+<script>
+    function listener_append(){
+        let div_append = document.getElementById("div_append");
+        let input_append = document.getElementById("input_append").value;
+        //alert(input_append);
+        if(input_append === "" || input_append == "undefined"){
+            return false;
+        }
+        div_append.innerHTML += "<div onclick='listener_remove(this)'>"+input_append +"</div>";
+        //div_append.append("<div onclick='listener_remove(this)'>"+input_append +"</div>");
+        document.getElementById("input_append").value = "";
+    }
+    
+    function listener_remove(obj){
+        obj.remove();
+    }
+    function delete_all(){
+        let div_append = document.getElementById("div_append");
+        div_append.innerHTML = "";
+        document.getElementById("input_append").value = "";
+    }
+</script>
+
+
+    <div id="div_add">추가될까요?</div>
+    <div id="div_add2">추가될까요2?</div>
+    <div id="div_01">바뀌기 전 택스트 + + + + </div>
+    <div id="div_02" class="div_0">div_02</div>
+    <div id="div_03" class="div_0">div_03</div>
+    <div id="div_04" class="div_0">div_04</div>
+
+    <input type="text" id="input11111" onchange="alert(1);" onfocus="console.log(1)" onblur="console.log(2)"/>
+
+    <script>
+        let div_01 = document.getElementById("div_01");
+        //alert("이제 바뀝니다!");
+        div_01.textContent = '바뀐 후 택스트';
+
+        let num = 0;
+        // div_01.addEventListener('click', function() {
+        //     div_01.textContent = num++ + '번째 바뀐 택스트!';
+        // });
+        div_01.addEventListener('click', changeText);
+
+        function changeText(){
+            div_01.textContent = num++ + '번째 바뀐 택스트!(click?!)';
+        }
+
+        let div_add = document.getElementById("div_add");
+        let div_add2 = document.getElementById("div_add2");
+        div_01.appendChild(div_add);
+        div_01.appendChild(div_add2);
+
+        div_01.textContent += "hahaha";
+        div_01.textContent += "hahaha";
+        div_01.textContent += "hahaha";
+        div_01.textContent += "hahaha";
+        div_01.textContent += "hahaha";
+        
+        //alert(div_0.length);
+        //div_0[0].textContent = "0";
+        let div_0 = document.getElementsByClassName("div_0");
+        for(let i=0;i<div_0.length;i++){
+            div_0[i].innerHTML = "<div>" + i+"번째 </div><div>클래스!!!!</div>";
+            //div_0[i].setAttribute("class", "div_blue");
+        }
+
+    </script>
+
+</body>
+</html>
+
