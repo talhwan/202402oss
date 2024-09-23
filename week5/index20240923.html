@@ -7,6 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
+    <style>
+      .background_brown{
+        background-color: brown;
+      }
+    </style>
+
     <h1>Hello, world!</h1>
     <table class="table table-striped table-bordered">
         <thead>
@@ -43,9 +49,9 @@
         </tbody>
       </table>
 
-      <div id="div_1" class="div_9">1</div>
-      <div id="div_2" class="div_0">2</div>
-      <div id="div_3" class="div_0">3</div>
+      <div id="div_1" class="div_9 background_brown">1</div>
+      <div id="div_2" class="div_0 background_brown">2</div>
+      <div id="div_3" class="div_0 background_brown">3</div>
       <div id="div_4" class="div_0">4</div>
       <input type="text" id="input_01" class="fomr_input"  />
       
@@ -56,9 +62,16 @@
       <script>
         function getInputValue(){
           let input_01 = $("#input_01").val();
-          alert(input_01);
+          //alert(input_01);
 
           $("#input_01").val("new value!!");
+
+          //$("#div_3").css("background-color", "red");
+          $("#div_4").addClass("background_brown");
+          $("#div_2").removeClass("background_brown");
+
+          alert($("#div_4").hasClass("background_brown"));
+
         }
 
       // let id_1 = $("#div_1");
