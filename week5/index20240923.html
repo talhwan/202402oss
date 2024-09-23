@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr onmouseover="console.log('enter')" onmouseout="console.log('out')">
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+          <tr class="table-active">
+            <th scope="row">4</th>
+            <td colspan="2">22222d</td>
+            <td>11111</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="div_1" class="div_9">1</div>
+      <div id="div_2" class="div_0">2</div>
+      <div id="div_3" class="div_0">3</div>
+      <div id="div_4" class="div_0">4</div>
+      <input type="text" id="input_01" class="fomr_input"  />
+      
+      <button type="button" class="btn btn-primary" onclick="getInputValue()">값 가져오기</button>
+      
+      <!-- 제이쿼리 -->
+      <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+      <script>
+        function getInputValue(){
+          let input_01 = $("#input_01").val();
+          alert(input_01);
+
+          $("#input_01").val("new value!!");
+        }
+
+      // let id_1 = $("#div_1");
+      // alert("div_1 : " + $("#div_1").html());
+      // $("#div_1").html("new 1");
+
+      // let div_0 = $(".div_0");
+      // alert("div_0 length : " + $(".div_0").length);
+
+      // for(let i=0;i<div_0.length;i++){
+      //   $(div_0[i]).html("new!!" + (i+2));
+      // }
+      </script>
+
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
