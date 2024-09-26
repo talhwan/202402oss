@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Web</title>
+  </head>
+  <body>
+
+    <style>
+      .img_responsive{
+        width:400px;
+        height: auto;
+      }
+      .div_responsive_yes{
+        background-color: aqua;
+      }
+      .div_responsive_yes_mo{
+        background-color: gold;
+      }
+      .div_responsive_no{
+        background-color: yellowgreen;
+      }
+      @media only screen and (max-width: 768px){
+        .div_responsive_yes{
+          background-color: rebeccapurple;
+          font-size: 5em;
+        }
+      }
+      @media only screen and (max-width: 400px){
+        .div_responsive_yes{
+          background-color: blanchedalmond;
+          font-size: 2em;
+        }
+        .img_responsive{
+          width:100%;
+          height: auto;
+        }
+      }
+      
+      @media only screen and (min-width: 401px){
+        .div_responsive_yes_mo{
+          font-weight: 900;
+          font-size: 5em;
+        }
+      }
+
+    </style>
+
+    <div class="div_responsive_yes">
+      저는 반응을 합니다.(PC 기준)
+    </div>
+
+    <div class="div_responsive_yes_mo">
+      저는 반응을 합니다.(모바일 기준)
+    </div>
+    
+    <div class="div_responsive_no">
+      저는 반응을 안 합니다.
+    </div>
+
+    <img src="../img/star.jpg" class="img_responsive"/>
+    
+  </body>
+</html>
