@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>      
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <style>
+      .div_data{
+        font-weight: 600;
+      }
+    </style>
+    
+    <div class="container">
+      <div>
+        도서관리
+      </div>
+      <div style="text-align: right;padding:5px 0px;">
+        <a href="./add.html" class="btn btn-warning">추가</a>
+        <a href="./edit.html" class="btn btn-warning">수정</a>
+        <a href="javascript:confirm('지울껍니까?')" class="btn btn-warning">삭제</a>
+        <a href="./index.html" class="btn btn-warning">목록</a>
+      </div>
+        <div class="mb-3">
+          <label for="create_book_title" class="form-label">도서명</label>
+          <div class="div_data">
+            도서명1
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="create_book_title" class="form-label">저자</label>
+          <div class="div_data">
+            저자1
+          </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
