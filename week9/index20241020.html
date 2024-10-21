@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>20240902</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../img/star.jpg">
+</head>
+<body>
+
+
+    <div id="div_json_test">-</div>
+    <script>
+/*
+자바 스크립트 배열 선언해보기!
+2가지 방법으로!!
+
+sort
+push
+foreach
+*/
+/*
+        let array_fruits = ["apple", "orange", "melon"];
+        alert(array_fruits.length);
+        alert(array_fruits[1]);
+
+        let array_newfruits = new Array("apple1", "orange1", "melon1");
+        alert(array_newfruits.length);
+        alert(JSON.stringify(array_newfruits));
+
+        array_fruits.sort();
+        alert(array_fruits[1]);
+
+        array_fruits.push("pear");
+        alert(array_fruits.length);
+
+        let sum = 0;
+        let array_numbers = [19, 10, 54, 207];
+        array_numbers.forEach(sumFunction);
+        function sumFunction(item){
+            sum += item;
+        }
+        alert("sum : " + sum);
+
+        let sum2 = 0;
+        for(let item of array_numbers){
+            sum2 += item;
+        }
+        alert("sum2 : " + sum2);
+
+        array_numbers.forEach(sumFunction2);
+        // 1번째 파라미터는 array_numbers[0], .....
+        // 2번째 파라미터는 0, 1.....
+        // 3번째 파라미터는 array_numbers
+        function sumFunction2(item, index, arr) {
+            arr[index] = item * 10;
+            alert(index + " : " + arr[index]);
+        }
+        alert("foreach adv : " + array_numbers[0]);
+
+        let sum3 = 0;
+        for(let i=0;i<array_numbers.length;i++){
+            sum3 += array_numbers[i];
+        }
+        alert("sum3 : " + sum3);
+        
+        let dfruits = ["banana", "orange", "mango", "apple"];
+        let fruit1 = dfruits[0]; // "banana"
+        //let fruit2 = dfruits[1]; // "orange"
+        let fruit3 = dfruits[2]; // "mango"
+        
+        let [fruit01,,fruit04] = dfruits;
+        alert(fruit04);
+
+        let {[0]:fruit001 ,[3]:fruit002} = dfruits; 
+        alert(fruit002);
+
+               let person = {
+            firstName : "길동",
+            lastName : "홍",
+            age : 700
+        };
+        let lastName1 = person.lastName;
+        let lastName01 = person["lastName"];
+
+        //let {lastName, firstName} = person;
+        //alert("lastName : " + lastName);
+        //alert("lastName01 : "  + lastName01);
+
+        let {firstName, lastName, country = "KOREA", height} = person; 
+        alert("lastName : " + lastName);
+        alert("country : " + country);
+        alert("height : " + height);
+        height = 170;
+        alert("height : " + height);
+                
+        // Property alias 
+        let {lastName : lName, firstName : fName} = person;
+        //let name = person.lastName;
+        alert(lName);
+        alert(fName);
+*/
+        let jsonObject = {
+            "firstName" : "길동",
+            "lastName" : "홍",
+            "age" : 700
+        };
+        let jsonArray = ["1", "2", 3];
+        alert(jsonObject.firstName);
+        alert(jsonArray[1]);
+
+        //document.getElementById("div_json_test").innerHTML =  "";
+        //객체를 문자열로 변환도 가능하고!
+        $("#div_json_test").html(JSON.stringify(jsonObject));
+
+        let string_json = $("#div_json_test").html();
+        alert(string_json);
+        //문자열로 되어 있는 것을 객체로 변환도 가능함!!
+        let afterParseJson = JSON.parse(string_json);
+        alert(afterParseJson.age);
+
+        // Create an Object 
+        let car = {}; 
+        // Add Properties 
+        car.name = "Genesis"; 
+        car.year = "2024"; 
+         
+        let myCar = { 
+            name: 'Ford', 
+            year: 2015, 
+            print : function(){ 
+                return "Car Info [" + this.name + "]" + this.year + "";
+            } 
+        }; 
+        alert(myCar.print());
+
+
+        // Class 사용!
+        class Car { 
+            constructor(name) { 
+                this.brand = name; 
+            } 
+            present() { return 'I have a ' + this.brand; } 
+        
+        } 
+        class Model extends Car { 
+            constructor(name, model) { 
+                super(name); 
+                this.model = model; 
+            }   
+            show() { 
+                return this.present() + ', it is a ' + this.model 
+            } 
+        } 
+        const mycar = new Model("Hyundai", "Genesis"); 
+        alert(mycar.show()); 
+        
+        alert(location.href);
+        //https://www.naver.com/
+
+        //let fruit01 = dfruits[0]; 
+        /*
+        
+        let fruits = ["dd", "aa", "bb", "cc"];
+        fruits.sort();
+        alert(fruits[0]);
+        alert(fruits.length);
+        
+        let sum = 0;
+        let numbers = [65, 44, 12, 4];
+        numbers.forEach(myFunction);
+        function myFunction(item) {
+            sum += item;
+        }
+            alert("sum : " + sum);
+        function myFunction(item, index, arr) {
+            arr[index] = item * 10;
+            alert(index + " : " + arr[index]);
+        }
+        alert(0 + " : " + numbers[0]);
+        //alert(arr[0]);
+
+        numbers.push(101);
+        alert("number[4] : " + numbers[4]);
+
+        let [firstName, surname] = [];
+
+        alert(firstName); // undefined
+        alert(surname); // undefined
+
+        // 기본값
+        let [name = "Guest", surname1 = "Anonymous"] = ["Julius"];
+
+        alert(name);    // Julius (배열에서 받아온 값)
+        alert(surname1); // Anonymous (기본값)
+
+        let options = {
+            title: "Menu",
+            width: 100,
+            height: 200
+        }
+        //  할당 연산자 우측엔 분해하고자 하는 객체를, 좌측엔 상응하는 객체 프로퍼티의 '패턴’을 넣는다. //
+        let {title, width, height} = options;
+
+        alert(title) ; // Menu
+        alert(width);  // 100
+        alert(height) ;// 200
+
+
+        let options1 = {
+            title1: "Menu1",
+            width: 100,
+            height: 200
+        }
+        // { 객체 프로퍼티: 목표 변수 }
+        let {width: w, height: h, title1} = options1 ;
+
+        // width -> w
+        // height -> h
+        // title -> title
+
+        alert(title1);   // Menu
+        alert(w) ;      // 100
+        alert(h) ;      // 200
+
+
+        let options2 = {
+        title2: "Menu2"
+        };
+
+        let {width: w2 = 100, height: h2 = 200, title2} = options2 
+
+        alert(title2)   // Menu
+        alert(w2)       // 100
+        alert(h2)       // 200
+
+
+        let obj_options = {
+            size: {
+                obj_width: 100,
+                obj_height: 200
+            },
+            items: ["Cake", "Donut"],
+            extra: true
+        };
+
+        let {
+        size: {
+            obj_width,
+            obj_height
+        },
+        items: [obj_item1, obj_item2], // items는 여기에 할당함
+        obj_title = "obj_Menu" // 분해하려는 객체에 title 프로퍼티가 없으므로 기본값을 사용함
+        } = obj_options;
+
+        alert(obj_title);
+        alert(obj_width);
+        alert(obj_height);
+        alert(obj_item1);
+        alert(obj_item2);
+        */
+        
+
+
+
+    </script>
+
+</body>
+</html>
+
