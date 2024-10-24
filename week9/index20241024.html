@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>20241024</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../img/star.jpg">
+</head>
+<body>
+
+<!-- 
+<div id="div_hide">
+hide?
+</div>
+<div id="div_css">
+css?
+</div>
+<div id="div_moving_btn">
+move btn
+</div>
+</div>
+<div id="div_moving2" style="width:200px;height:200px;position:fixed;top:100px;background-color: blueviolet;">
+move?
+</div> 
+-->
+<button onclick="getDataFromJSONFile()">get DATA</button>
+NAME : <input type="text" id="student_name" />
+AGE : <input type="number" id="student_age" />
+<button onclick="createDataToJSONFile()">create DATA</button>
+<div id="div_students">
+</div>
+
+    <script>
+
+    function getDataFromJSONFile(){
+
+        const xhr = new XMLHttpRequest(); 
+        xhr.open("GET", "http://localhost:3000/students"); 
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.send();
+        xhr.onload = () => { 
+            //alert(JSON.stringify(xhr));
+            if(xhr.status === 200){
+                $("#div_students").html("");
+                //alert(JSON.stringify(xhr.response));
+                let students = JSON.parse(xhr.response);
+                //alert(students.length);
+                students.forEach((item) => {
+                    $("#div_students").append("<div>" + item.id + " " + item.name + "</div>");
+                });
+            }
+        } 
+    }
+
+    function createDataToJSONFile(){
+        const xhr = new XMLHttpRequest(); 
+        xhr.open("POST", "http://localhost:3000/students"); 
+        xhr.setRequestHeader("content-type", "application/json;chatset=UTF-8");
+
+        let data = {name:$("#student_name").val(), age:$("#student_age").val()};
+
+        xhr.send(JSON.stringify(data));
+        xhr.onload = () => { 
+            if(xhr.status === 201){
+                alert("등록 성공!");
+                getDataFromJSONFile();
+            }
+            //document.getElementById("demo").innerHTML = this.responseText; 
+        } 
+    }
+
+
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        $("#div_hide").click(function () { 
+            $(this).hide(); 
+        }); 
+        $("#div_css").click(function () { 
+            $(this).css("color", "red"); 
+        }); 
+        $("#div_moving2").click(function () { 
+            $("#div_moving2").animate({top : "250px"}); 
+        }); 
+    });
+
+    /*
+    let top_position_way = false;
+    setInterval(() => {
+        top_position_way = !top_position_way;
+        if(top_position_way){
+            $("#div_moving2").animate({top : "250px"}); 
+        } else {
+            $("#div_moving2").animate({top : "500px"}); 
+        }
+    }, 200);
+    */
+    </script>
+
+
+
+
+<!--
+
+    <div id="demo"></div>
+
+    <div onclick="aaa()">aaa</div>
+    <div onclick="bbb()">abbbaa</div>
+
+
+    <div id="div_json_test">-</div>
+    <script>
+
+    function aaa(){
+
+        const xhr = new XMLHttpRequest(); 
+        xhr.open("GET", "http://localhost:3000/students"); 
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.send();
+        xhr.onload = () => { 
+            if(xhr.status === 200){
+                alert(JSON.stringify(xhr.response));
+                document.getElementById("demo").innerHTML = xhr.responseText; 
+            }
+        } 
+    }
+
+    function bbb(){
+
+        const xhr = new XMLHttpRequest(); 
+        xhr.open("POST", "http://localhost:3000/students"); 
+        xhr.setRequestHeader("content-type", "application/json;chatset=UTF-8");
+
+        let data = {name:'name1', age:12};
+
+        xhr.send(JSON.stringify(data));
+        xhr.onload = () => { 
+            if(xhr.status === 201){
+                alert(JSON.stringify(xhr.response));
+            }
+            //document.getElementById("demo").innerHTML = this.responseText; 
+        } 
+    }
+
+    
+    </script>
+-->
+</body>
+</html>
+
