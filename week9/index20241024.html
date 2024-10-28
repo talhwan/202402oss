@@ -30,6 +30,8 @@ move?
 NAME : <input type="text" id="student_name" />
 AGE : <input type="number" id="student_age" />
 <button onclick="createDataToJSONFile()">create DATA</button>
+ID : <input type="number" id="student_id" />
+<button onclick="updateDataToJSONFile()">update DATA</button>
 <div id="div_students">
 </div>
 
@@ -72,6 +74,26 @@ AGE : <input type="number" id="student_age" />
         } 
     }
 
+
+    function updateDataToJSONFile(){
+        let id = $("#student_id").val();
+        alert(id);
+        const xhr = new XMLHttpRequest(); 
+        xhr.open("PUT", "http://localhost:3000/students/" + id); 
+        xhr.setRequestHeader("content-type", "application/json;chatset=UTF-8");
+
+        let data = {name:$("#student_name").val(), age:$("#student_age").val()};
+
+        xhr.send(JSON.stringify(data));
+        xhr.onload = () => { 
+            alert(xhr.status);
+            if(xhr.status === 200){
+                alert("수정 성공!");
+                getDataFromJSONFile();
+            }
+            //document.getElementById("demo").innerHTML = this.responseText; 
+        } 
+    }
 
     $( document ).ready(function() {
         console.log( "ready!" );
