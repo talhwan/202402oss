@@ -17,9 +17,9 @@
 <script>
 	alert("되는지 확인해봅시다.");
 	function receiveFromFlutter(obj_data){
-		let tempJsonData = JSON.parse(obj_data);
-		let tempType = tempJsonData["type"];
-		$("#div_test").html(tempType);
+		//let tempJsonData = JSON.parse(obj_data);
+		//let tempType = tempJsonData["type"];
+		$("#div_test").html(obj_data);
 	}
 	function aaa(){
 		if (window.FlutterBridge) {
