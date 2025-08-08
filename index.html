@@ -19,7 +19,7 @@
 	function receiveFromFlutter(obj_data){
 		let tempJsonData = JSON.parse(JSON.stringify(obj_data));
 		let tempType = tempJsonData["type"];
-		$("#div_test").html(JSON.stringify(obj_data));
+		$("#div_test").html(tempType);
 	}
 	function aaa(){
 		if (window.FlutterBridge) {
