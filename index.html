@@ -14,18 +14,20 @@
 	<a onclick="aaa()">test-btn</a>
 
 <script>
-
-	
 	alert("되는지 확인해봅시다.");
 	function receiveFromFlutter(obj_data){
 		$("#div_test").html(JSON.stringify(obj_data));
 	}
 	function aaa(){
-		JavaScriptChannel.postMessage(JSON.stringify({
-		  action: "share",
-		  content: "Check this out!",
-		  url: "https://example.com"
-		}));
+		if (window.FlutterBridge) {
+		  window.FlutterBridge.postMessage(JSON.stringify({
+		    action: "share",
+		  	content: "Check this out!",
+		  	url: "https://example.com"
+		  }));
+		} else {
+		  console.log("FlutterBridge is not available.");
+		}
 	}
 </script>
     
