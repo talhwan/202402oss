@@ -11,12 +11,15 @@
     <h1>안녕하세요!!</h1>
     <div id="div_test">-</div>
     <img src="img/star.jpg" width="200"/>
+	<a href="https://www.daum.net">aaaaa</a>
 	<a onclick="aaa()">test-btn</a>
 
 <script>
 	alert("되는지 확인해봅시다.");
 	function receiveFromFlutter(obj_data){
-		$("#div_test").html(JSON.stringify(obj_data));
+		let tempJsonData = JSON.parse(obj_data);
+		let tempType = tempJsonData["type"];
+		$("#div_test").html(tempType);
 	}
 	function aaa(){
 		if (window.FlutterBridge) {
