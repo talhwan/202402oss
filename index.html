@@ -11,13 +11,22 @@
     <h1>안녕하세요!!</h1>
     <div id="div_test">-</div>
     <img src="img/star.jpg" width="200"/>
+	<a onclick="aaa()">test-btn</a>
 
 <script>
+
+	
 	alert("되는지 확인해봅시다.");
-function receiveFromFlutter(obj_data){
-	$("#div_test").html(JSON.stringify(obj_data));
-}
-	alert(112233);
+	function receiveFromFlutter(obj_data){
+		$("#div_test").html(JSON.stringify(obj_data));
+	}
+	function aaa(){
+		JavaScriptChannel.postMessage(JSON.stringify({
+		  action: "share",
+		  content: "Check this out!",
+		  url: "https://example.com"
+		}));
+	}
 </script>
     
 </body>
