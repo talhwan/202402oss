@@ -24,9 +24,8 @@
 	function aaa(){
 		if (window.FlutterBridge) {
 		  window.FlutterBridge.postMessage(JSON.stringify({
-		    action: "share",
-		  	content: "Check this out!",
-		  	url: "https://example.com"
+		    action: "js_fcm",
+		  	data: "testing"
 		  }));
 		} else {
 		  console.log("FlutterBridge is not available.");
