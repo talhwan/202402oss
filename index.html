@@ -18,11 +18,15 @@
 	<a onclick="getFCMToken()">test-btn</a>
 
 <script>
-	alert("되는지 확인해봅시다.");
+	//alert("되는지 확인해봅시다.");
 	function receiveFromFlutter(obj_data){
 		let tempJsonData = JSON.parse(JSON.stringify(obj_data));
 		let tempType = tempJsonData["type"];
-		$("#div_test").html(tempType);
+        
+        if(tempType === "fcmToken"){
+            let tempData = tempJsonData["data"];
+		    $("#div_test").html(tempData["token"]);
+        }
 	}
 	function aaa(){
 		if (window.FlutterBridge) {
