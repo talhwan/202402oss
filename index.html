@@ -12,7 +12,10 @@
     <div id="div_test">-</div>
     <img src="img/star.jpg" width="200"/>
 	<a href="https://www.daum.net">aaaaa</a>
-	<a onclick="aaa()">test-btn</a>
+	<a onclick="sendSMS()">sendSMS</a>
+	<a onclick="share()">share</a>
+	<a onclick="openUrl()">openUrl</a>
+	<a onclick="getFCMtoken()">test-btn</a>
 
 <script>
 	alert("되는지 확인해봅시다.");
@@ -26,6 +29,53 @@
 		  window.FlutterBridge.postMessage(JSON.stringify({
 		    action: "js_fcm",
 		  	data: "testing"
+		  }));
+		} else {
+		  console.log("FlutterBridge is not available.");
+		}
+	}
+    
+	function sendSMS(){
+		if (window.FlutterBridge) {
+		  window.FlutterBridge.postMessage(JSON.stringify({
+		    action: "sendSMS",
+		  	phone: 'talhwan@daum.net',
+            body: '111222'
+		  }));
+		} else {
+		  console.log("FlutterBridge is not available.");
+		}
+	}
+
+    function share(){
+		if (window.FlutterBridge) {
+		  window.FlutterBridge.postMessage(JSON.stringify({
+		    action: "share",
+		  	content: '공유테스트',
+            url: 'https://www.daum.net'
+		  }));
+		} else {
+		  console.log("FlutterBridge is not available.");
+		}
+	}
+
+    
+    function openUrl(){
+		if (window.FlutterBridge) {
+		  window.FlutterBridge.postMessage(JSON.stringify({
+		    action: "openUrl",
+            url: 'https://www.daum.net'
+		  }));
+		} else {
+		  console.log("FlutterBridge is not available.");
+		}
+	}
+
+    
+	function getFCMtoken(){
+		if (window.FlutterBridge) {
+		  window.FlutterBridge.postMessage(JSON.stringify({
+		    action: "getFCMtoken"
 		  }));
 		} else {
 		  console.log("FlutterBridge is not available.");
