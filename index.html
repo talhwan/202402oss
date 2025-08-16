@@ -27,6 +27,10 @@
             let tempData = tempJsonData["data"];
 		    $("#div_test").html(tempData["token"]);
         }
+        if(tempType === "localStorage"){
+            let tempData = tempJsonData["data"];
+		    $("#div_test").html(tempData["value"]);
+        }
 	}
 	function aaa(){
 		if (window.FlutterBridge) {
@@ -80,6 +84,31 @@
 		if (window.FlutterBridge) {
 		  window.FlutterBridge.postMessage(JSON.stringify({
 		    action: "getFCMToken"
+		  }));
+		} else {
+		  console.log("FlutterBridge is not available.");
+		}
+	}
+
+    
+    
+	function setLocalStorage(){
+		if (window.FlutterBridge) {
+		  window.FlutterBridge.postMessage(JSON.stringify({
+		    action: "setLocalStorage",
+            key: 'key_test',
+            value: 'value_test'
+		  }));
+		} else {
+		  console.log("FlutterBridge is not available.");
+		}
+	}
+    
+	function getLocalStorage(){
+		if (window.FlutterBridge) {
+		  window.FlutterBridge.postMessage(JSON.stringify({
+		    action: "getLocalStorage",
+            key: 'key_test'
 		  }));
 		} else {
 		  console.log("FlutterBridge is not available.");
