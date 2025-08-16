@@ -15,7 +15,7 @@
 	<a onclick="sendSMS()">sendSMS</a>
 	<a onclick="share()">share</a>
 	<a onclick="openUrl()">openUrl</a>
-	<a onclick="getFCMtoken()">test-btn</a>
+	<a onclick="getFCMToken()">test-btn</a>
 
 <script>
 	alert("되는지 확인해봅시다.");
@@ -72,10 +72,10 @@
 	}
 
     
-	function getFCMtoken(){
+	function getFCMToken(){
 		if (window.FlutterBridge) {
 		  window.FlutterBridge.postMessage(JSON.stringify({
-		    action: "getFCMtoken"
+		    action: "getFCMToken"
 		  }));
 		} else {
 		  console.log("FlutterBridge is not available.");
