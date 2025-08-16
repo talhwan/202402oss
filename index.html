@@ -36,16 +36,6 @@
 		    $("#div_test").html(tempJsonData["value"]);
         }
 	}
-	function aaa(){
-		if (window.FlutterBridge) {
-		  window.FlutterBridge.postMessage(JSON.stringify({
-		    action: "js_fcm",
-		  	data: "testing"
-		  }));
-		} else {
-		  console.log("FlutterBridge is not available.");
-		}
-	}
     
 	function sendSMS(){
 		if (window.FlutterBridge) {
